@@ -1,7 +1,10 @@
 import axios from 'axios'
 
+// Lee la variable de entorno o usa un valor por defecto
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api'
+
 const productsApi = axios.create({
-    baseURL: 'http://localhost:8000/api/producto/'
+  baseURL: `${API_BASE_URL}/producto/`
 })
 
 export const getProducts = () => productsApi.get()
